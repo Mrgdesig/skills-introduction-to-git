@@ -56,7 +56,13 @@ function init() {
   board = Array(ROWS)
     .fill(null)
     .map(() => Array(COLS).fill(0));
+// Load high score from localStorage
+highScore = parseInt(localStorage.getItem("stackOverflowHighScore")) || 0;
 
+const highScoreElement = document.getElementById("high-score");
+if (highScoreElement) {
+  highScoreElement.textContent = highScore;
+// }
   // Set initial target pattern
   setNewTargetPattern();
 
